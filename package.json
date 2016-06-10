@@ -12,6 +12,7 @@
   },
   "keywords": [
     "react",
+    "react-native",
     "native",
     "amap",
     "location"
@@ -21,9 +22,5 @@
   "bugs": {
     "url": "https://github.com/dianwoba/react-native-amap/issues"
   },
-  "homepage": "https://github.com/dianwoba/react-native-amap#readme",
-  "devDependencies": {
-    "react": "^0.14.8",
-    "react-native": "^0.24.1"
-  }
+  "homepage": "https://github.com/dianwoba/react-native-amap#readme"
 }

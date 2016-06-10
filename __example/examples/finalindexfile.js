@@ -4,16 +4,16 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   Dimensions,
   Animated,
-  TouchableOpacity,
-  } = React;
+  TouchableOpacity
+  } from 'react-native';
 import MapView from 'react-native-amap-view'
 var PriceMarker = require('./components/PriceMarker');
 

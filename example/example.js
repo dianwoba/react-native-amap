@@ -4,16 +4,16 @@
  * @flow
  */
 
-import React, {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Text,
   View,
   MapView,
   Dimensions,
   Navigator,
-    ScrollView,
+  ScrollView,
 } from 'react-native';
 // import Mapbox from 'react-native-mapbox-gl'
 import AMapView from 'react-native-amap-view'

@@ -57,8 +57,9 @@ public class AMapSearchManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void regeocodeSearch(String requestId, LatLonPoint point, Float radius) {
+    public void regeocodeSearch(String requestId, ReadableMap geoPoint, Float radius) {
         MyGeocodeSearch request = new MyGeocodeSearch(reactContext, requestId);
+        LatLonPoint point = new LatLonPoint(geoPoint.getDouble("latitude"), geoPoint.getDouble("longitude"));
         RegeocodeQuery query = new RegeocodeQuery(point, radius != null?radius:1000, GeocodeSearch.AMAP);
 
         request.geocodeSearch.getFromLocationAsyn(query);

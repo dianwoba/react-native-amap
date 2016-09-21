@@ -1,13 +1,12 @@
-var React = require('react-native');
-var {
+import React, { PropTypes } from 'react';
+import {
   StyleSheet,
-  PropTypes,
   View,
   Text,
   Dimensions,
   TouchableOpacity,
-  Image,
-  } = React;
+  Image
+  } from 'react-native';
 
 import MapView from 'react-native-amap-view'
 

@@ -1,9 +1,9 @@
-import React, {
+import React, { PropTypes } from 'react';
+import {
   StyleSheet,
-  PropTypes,
   View,
   Text,
-  Animated,
+  Animated
 } from 'react-native';
 
 const PriceMarker = ({ amount, selected, style }) => {

@@ -12,6 +12,7 @@
   },
   "keywords": [
     "react",
+    "react-native",
     "native",
     "amap",
     "location"
@@ -26,8 +27,6 @@
     "babel-eslint": "^6.1.0",
     "eslint": "^3.0.1",
     "eslint-plugin-flowtype": "^2.3.0",
-    "eslint-plugin-react": "^5.2.2",
-    "react": "^0.14.8",
-    "react-native": "^0.24.1"
+    "eslint-plugin-react": "^5.2.2"
   }
 }

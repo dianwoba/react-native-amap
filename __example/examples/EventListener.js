@@ -1,13 +1,12 @@
-var React = require('react-native');
-var {
+import React, { PropTypes } from 'react';
+import {
   StyleSheet,
-  PropTypes,
   View,
   Text,
   Dimensions,
   TouchableOpacity,
-  ScrollView,
-} = React;
+  ScrollView
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 var PriceMarker = require('./PriceMarker');

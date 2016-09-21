@@ -22,6 +22,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		AF748CE71D0A7E3300A02D77 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF748CE61D0A7E3300A02D77 /* AMapSearchKit.framework */; };
 		F396A1C61CFD6FD3002E11FE /* libRCTAMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F396A1BC1CFD6FC7002E11FE /* libRCTAMap.a */; };
 		F396A1CD1CFD7104002E11FE /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F396A1CC1CFD7104002E11FE /* AMap.bundle */; };
 		F396A1CF1CFD7134002E11FE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F396A1CE1CFD7134002E11FE /* libc++.tbd */; };
@@ -147,6 +148,7 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		AF748CE61D0A7E3300A02D77 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		F396A1B61CFD6FC7002E11FE /* RCTAMap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAMap.xcodeproj; path = "../node_modules/react-native-amap-view/ios/RCTAMap.xcodeproj"; sourceTree = "<group>"; };
 		F396A1CC1CFD7104002E11FE /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		F396A1CE1CFD7134002E11FE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -175,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF748CE71D0A7E3300A02D77 /* AMapSearchKit.framework in Frameworks */,
 				F396A1E31CFD71CA002E11FE /* Security.framework in Frameworks */,
 				F396A1E11CFD71C2002E11FE /* libstdc++.6.0.9.tbd in Frameworks */,
 				F396A1DF1CFD71BA002E11FE /* libz.tbd in Frameworks */,
@@ -366,6 +369,7 @@
 		F396A1C71CFD7066002E11FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF748CE61D0A7E3300A02D77 /* AMapSearchKit.framework */,
 				F396A1E41CFD721D002E11FE /* MAMapKit.framework */,
 				F396A1E21CFD71CA002E11FE /* Security.framework */,
 				F396A1E01CFD71C2002E11FE /* libstdc++.6.0.9.tbd */,
@@ -782,7 +786,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -822,7 +826,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

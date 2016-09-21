@@ -1,9 +1,9 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   View,
-  Text,
-} = React;
+  Text
+} from 'react-native';
 
 var CustomCallout = React.createClass({
   render() {

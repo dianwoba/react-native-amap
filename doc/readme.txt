@@ -1,0 +1,1 @@
+Replaced AnimatedImplementation.js in react-native/Libraries/Animated/src to run __example.

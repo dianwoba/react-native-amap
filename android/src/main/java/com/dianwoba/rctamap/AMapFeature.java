@@ -2,7 +2,7 @@ package com.dianwoba.rctamap;
 
 import android.content.Context;
 
-import com.amap.api.maps2d.AMap;
+import com.amap.api.maps.AMap;
 import com.facebook.react.views.view.ReactViewGroup;
 
 

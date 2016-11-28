@@ -1,8 +1,8 @@
 package com.dianwoba.rctamap;
 
 
-import com.amap.api.maps2d.model.LatLng;
-import com.amap.api.maps2d.model.LatLngBounds;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.LatLngBounds;
 
 public class LatLngBoundsUtils {
     public static boolean BoundsAreDifferent(LatLngBounds a, LatLngBounds b) {

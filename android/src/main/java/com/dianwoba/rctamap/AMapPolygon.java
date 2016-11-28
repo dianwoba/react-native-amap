@@ -2,10 +2,10 @@ package com.dianwoba.rctamap;
 
 import android.content.Context;
 
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.model.LatLng;
-import com.amap.api.maps2d.model.Polygon;
-import com.amap.api.maps2d.model.PolygonOptions;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Polygon;
+import com.amap.api.maps.model.PolygonOptions;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 

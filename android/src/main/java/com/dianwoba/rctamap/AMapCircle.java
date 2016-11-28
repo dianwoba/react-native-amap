@@ -2,10 +2,13 @@ package com.dianwoba.rctamap;
 
 import android.content.Context;
 
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.model.Circle;
-import com.amap.api.maps2d.model.CircleOptions;
-import com.amap.api.maps2d.model.LatLng;
+
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.model.Circle;
+import com.amap.api.maps.model.CircleOptions;
+import com.amap.api.maps.model.LatLng;
+
+import java.util.Map;
 
 
 public class AMapCircle extends AMapFeature {

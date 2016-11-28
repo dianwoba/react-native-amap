@@ -1,16 +1,19 @@
 package com.dianwoba.rctamap;
 
+import android.os.Environment;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.CameraUpdate;
-import com.amap.api.maps2d.CameraUpdateFactory;
-import com.amap.api.maps2d.MapView;
-import com.amap.api.maps2d.MapsInitializer;
-import com.amap.api.maps2d.model.LatLng;
-import com.amap.api.maps2d.model.LatLngBounds;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdate;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.MapView;
+import com.amap.api.maps.MapsInitializer;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.LatLngBounds;
+import com.dianwoba.rctamap.utils.OffLineMapUtils;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReadableArray;
@@ -68,10 +71,12 @@ public class AMapViewManager extends ViewGroupManager<AMapView> {
     @Override
     protected AMapView createViewInstance(ThemedReactContext context) {
         reactContext = context;
+        MapsInitializer.sdcardDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/amap/mini_mapv3/vmap";
         AMapView view = new AMapView(context, this);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        view.map.getUiSettings().setZoomControlsEnabled(false);
         try {
             MapsInitializer.initialize(context.getApplicationContext());
         } catch (Exception e) {
@@ -148,10 +153,10 @@ public class AMapViewManager extends ViewGroupManager<AMapView> {
     @ReactProp(name = "zoomEnabled", defaultBoolean = false)
     public void setZoomEnabled(AMapView view, boolean zoomEnabled) {
         view.map.getUiSettings().setZoomGesturesEnabled(zoomEnabled);
-        view.map.getUiSettings().setZoomControlsEnabled(zoomEnabled);
+     //   view.map.getUiSettings().setZoomControlsEnabled(zoomEnabled);
     }
 
-    @ReactProp(name = "zoomLevel", defaultDouble = 10.0)
+    @ReactProp(name = "zoomLevel", defaultDouble = 15.0)
     public void  setZoomLevel(AMapView view, double zoomLevel) {
         view.setZoomLevel((float) zoomLevel);
     }

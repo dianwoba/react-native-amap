@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -7,7 +7,7 @@ var {
   Dimensions,
   TouchableOpacity,
   ScrollView,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 var PriceMarker = require('./PriceMarker');
@@ -21,10 +21,11 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 var id = 0;
 
-var Event = React.createClass({
+class Event extends React.Component {
   shouldComponentUpdate(nextProps) {
     return this.props.event.id !== nextProps.event.id;
-  },
+  }
+
   render() {
     var { event } = this.props;
     return (
@@ -33,12 +34,13 @@ var Event = React.createClass({
         <Text style={styles.eventData}>{JSON.stringify(event.data, null, 2)}</Text>
       </View>
     );
-  },
-});
+  }
+};
 
-var DisplayLatLng = React.createClass({
-  getInitialState() {
-    return {
+export default class DisplayLatLng extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -47,7 +49,7 @@ var DisplayLatLng = React.createClass({
       },
       events: [],
     };
-  },
+  }
 
   makeEvent(e, name) {
     return {
@@ -55,7 +57,7 @@ var DisplayLatLng = React.createClass({
       name: name,
       data: e.nativeEvent ? e.nativeEvent : e,
     };
-  },
+  }
 
   recordEvent(name) {
     return e => {
@@ -67,7 +69,7 @@ var DisplayLatLng = React.createClass({
         ],
       });
     };
-  },
+  }
 
   render() {
     return (
@@ -110,8 +112,8 @@ var DisplayLatLng = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -174,5 +176,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = DisplayLatLng;

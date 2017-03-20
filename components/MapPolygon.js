@@ -11,10 +11,10 @@ var {
   StyleSheet,
 } = ReactNative;
 
-var MapPolygon = React.createClass({
-  mixins: [NativeMethodsMixin],
+class MapPolygon extends React.Component {
+  // mixins: [NativeMethodsMixin],
 
-  propTypes: {
+  static propTypes = {
     ...View.propTypes,
 
     /**
@@ -129,28 +129,28 @@ var MapPolygon = React.createClass({
      * @platform ios
      */
     lineDashPattern: PropTypes.arrayOf(PropTypes.number),
-  },
+  }
 
-  getDefaultProps: function() {
+  static defaultProps: function() {
     return {
       strokeColor: '#000',
       strokeWidth: 1,
     };
-  },
+  }
 
-  _onPress: function(e) {
+  _onPress(e) {
     this.props.onPress && this.props.onPress(e);
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <AMapPolygon
         {...this.props}
         onPress={this._onPress}
       />
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   polyline: {
@@ -162,4 +162,4 @@ var styles = StyleSheet.create({
 
 var AMapPolygon = requireNativeComponent('AMapPolygon', MapPolygon);
 
-module.exports = MapPolygon;
+export default MapPolygon;

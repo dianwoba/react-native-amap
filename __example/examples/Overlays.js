@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+import React from 'react-native';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -7,7 +7,7 @@ var {
   Dimensions,
   TouchableOpacity,
   Image,
-  } = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 
@@ -20,9 +20,11 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const SPACE = 0.01;
 
-var Overlays = React.createClass({
-  getInitialState() {
-    return {
+export default class Overlays extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -69,7 +71,8 @@ var Overlays = React.createClass({
         },
       ],
     };
-  },
+  }
+
 
   render() {
     const { region, circle, polygon, polyline } = this.state;
@@ -105,8 +108,8 @@ var Overlays = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -148,5 +151,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = Overlays;

@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -7,10 +7,10 @@ var {
   Dimensions,
   TouchableOpacity,
   Image,
-} = React;
+} from 'react-native';
 
-import MapView from 'react-native-amap-view'
-var PriceMarker = require('./PriceMarker');
+import MapView from 'react-native-amap-view';
+import PriceMarker from './PriceMarker';
 
 var { width, height } = Dimensions.get('window');
 
@@ -21,9 +21,10 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const SPACE = 0.01;
 
-var MarkerTypes = React.createClass({
-  getInitialState() {
-    return {
+export default class MarkerTypes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       a: {
         latitude: LATITUDE + SPACE,
         longitude: LONGITUDE + SPACE,
@@ -32,8 +33,9 @@ var MarkerTypes = React.createClass({
         latitude: LATITUDE - SPACE,
         longitude: LONGITUDE - SPACE,
       },
-    }
-  },
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -70,8 +72,8 @@ var MarkerTypes = React.createClass({
         </MapView>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -91,5 +93,3 @@ var styles = StyleSheet.create({
     bottom: 0,
   },
 });
-
-module.exports = MarkerTypes;

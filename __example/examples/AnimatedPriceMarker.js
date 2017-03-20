@@ -1,4 +1,5 @@
-import React, {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -7,7 +8,6 @@ import React, {
 } from 'react-native';
 
 const PriceMarker = ({ amount, selected, style }) => {
-
   var background = selected.interpolate({
     inputRange: [0, 1],
     outputRange: ['#FF5A5F', '#4da2ab'],
@@ -21,19 +21,19 @@ const PriceMarker = ({ amount, selected, style }) => {
   return (
     <Animated.View style={[styles.container, style]}>
       <Animated.View style={[styles.bubble, {
-          backgroundColor: background,
-          borderColor: border,
-        }]}
-        >
+        backgroundColor: background,
+        borderColor: border,
+      }]}
+      >
         <Text style={styles.dollar}>$</Text>
         <Text style={styles.amount}>{amount}</Text>
       </Animated.View>
       <Animated.View style={[styles.arrowBorder, {
-          borderTopColor: border,
-        }]} />
+        borderTopColor: border,
+      }]} />
       <Animated.View style={[styles.arrow, {
-          borderTopColor: background,
-        }]} />
+        borderTopColor: background,
+      }]} />
     </Animated.View>
   );
 };
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = PriceMarker;
+export default PriceMarker;

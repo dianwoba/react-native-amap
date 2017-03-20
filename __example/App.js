@@ -1,32 +1,26 @@
-var React = require('react');
-var ReactNative = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
   Text,
-} = ReactNative;
-var DisplayLatLng = require('./examples/DisplayLatLng');
-var ViewsAsMarkers = require('./examples/ViewsAsMarkers');
-var EventListener = require('./examples/EventListener');
-var MarkerTypes = require('./examples/MarkerTypes');
-var DraggableMarkers = require('./examples/DraggableMarkers');
-var PolygonCreator = require('./examples/PolygonCreator');
-var AnimatedViews = require('./examples/AnimatedViews');
-var AnimatedMarkers = require('./examples/AnimatedMarkers');
-var Callouts = require('./examples/Callouts');
-var Overlays = require('./examples/Overlays');
-var DefaultMarkers = require('./examples/DefaultMarkers');
+} from 'react-native';
+import DisplayLatLng from './examples/DisplayLatLng';
+import ViewsAsMarkers from './examples/ViewsAsMarkers';
+import EventListener from './examples/EventListener';
+import MarkerTypes from './examples/MarkerTypes';
+import DraggableMarkers from './examples/DraggableMarkers';
+import PolygonCreator from './examples/PolygonCreator';
+import AnimatedViews from './examples/AnimatedViews';
+import AnimatedMarkers from './examples/AnimatedMarkers';
+import Callouts from './examples/Callouts';
+import Overlays from './examples/Overlays';
+import DefaultMarkers from './examples/DefaultMarkers';
 
 
-var App = React.createClass({
-
-  getInitialState() {
-    return { Component: null };
-  },
-
-  renderExample([Component, title], i) {
+export default class App extends React.Compoennt{
+renderExample([Component, title], i) {
     return (
       <TouchableOpacity
         key={i}
@@ -36,7 +30,7 @@ var App = React.createClass({
         <Text>{title}</Text>
       </TouchableOpacity>
     );
-  },
+  }
 
   renderBackButton() {
     return (
@@ -47,7 +41,7 @@ var App = React.createClass({
         <Text style={{ fontWeight: 'bold', fontSize: 30 }}>&larr;</Text>
       </TouchableOpacity>
     );
-  },
+  }
 
   renderExamples(examples) {
     var { Component } = this.state;
@@ -64,7 +58,7 @@ var App = React.createClass({
         )}
       </View>
     );
-  },
+  }
 
   render() {
     return this.renderExamples([
@@ -80,8 +74,8 @@ var App = React.createClass({
       [Overlays, 'Circles, Polygons, and Polylines'],
       [DefaultMarkers, 'Default Markers'],
     ]);
-  },
-});
+  }
+}
 
 var styles = StyleSheet.create({
   container: {
@@ -117,5 +111,3 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-module.exports = App;

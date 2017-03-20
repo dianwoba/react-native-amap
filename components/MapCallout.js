@@ -1,36 +1,29 @@
 
-var React = require('react');
-var {
-  PropTypes,
-} = React;
-
-var ReactNative = require('react-native');
-var {
+import React, {PropTypes} from 'react';
+import {
   View,
   NativeMethodsMixin,
   requireNativeComponent,
   StyleSheet,
-} = ReactNative;
+} from 'react-native';
 
-var MapCallout = React.createClass({
-  mixins: [NativeMethodsMixin],
+class MapCallout extends React.Component {
+  // mixins: [NativeMethodsMixin],
 
-  propTypes: {
+  static propTypes= {
     ...View.propTypes,
     tooltip: PropTypes.bool,
     onPress: PropTypes.func,
-  },
+  }
 
-  getDefaultProps: function() {
-    return {
+  static defaultProps= {
       tooltip: false,
-    };
-  },
+  }
 
-  render: function() {
+  render() {
     return <AMapCallout {...this.props} style={[styles.callout, this.props.style]} />;
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   callout: {
@@ -40,6 +33,4 @@ var styles = StyleSheet.create({
   },
 });
 
-var AMapCallout = requireNativeComponent('AMapCallout', MapCallout);
-
-module.exports = MapCallout;
+export default requireNativeComponent('AMapCallout', MapCallout);

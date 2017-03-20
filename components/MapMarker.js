@@ -1,12 +1,7 @@
-"use strict"
 
-var React = require("react")
-var {
-    PropTypes,
-} = React
 
-var ReactNative = require("react-native")
-var {
+import React, { PropTypes } from 'react';
+import {
     View,
     NativeMethodsMixin,
     requireNativeComponent,
@@ -14,22 +9,22 @@ var {
     Platform,
     NativeModules,
     Animated,
-} = ReactNative
+} from 'react-native';
 
-var resolveAssetSource = require("react-native/Libraries/Image/resolveAssetSource")
-var AMapMarker = requireNativeComponent("AMapMarker", MapMarker)
+import resolveAssetSource from "react-native/Libraries/Image/resolveAssetSource";
+let AMapMarker = requireNativeComponent("AMapMarker", MapMarker);
 
-var MapMarker = React.createClass({
-    mixins: [NativeMethodsMixin],
+class MapMarker extends React.Component {
+    // mixins: [NativeMethodsMixin],
 
-    viewConfig: {
+    static viewConfig= {
         uiViewClassName: "AMapMarker",
         validAttributes: {
             coordinate: true,
         },
-    },
+    }
 
-    propTypes: {
+    static propTypes= {
         ...View.propTypes,
 
         // TODO(lmr): get rid of these?
@@ -209,59 +204,59 @@ var MapMarker = React.createClass({
          */
         onDragEnd: PropTypes.func,
 
-    },
+    }
 
-    showCallout: function() {
+    showCallout () {
         this._runCommand("showCallout", [])
-    },
+    }
 
-    hideCallout: function() {
+    hideCallout () {
         this._runCommand("hideCallout", [])
-    },
+    }
 
-    _getHandle: function() {
+    _getHandle () {
         return ReactNative.findNodeHandle(this.refs.marker)
-    },
+    }
 
-    _runCommand: function(name, args) {
+    _runCommand (name, args) {
         switch (Platform.OS) {
-        case "android":
-            NativeModules.UIManager.dispatchViewManagerCommand(
-                this._getHandle(),
-                NativeModules.UIManager.AMapMarker.Commands[name],
-                args
-            )
-            break
+            case "android":
+                NativeModules.UIManager.dispatchViewManagerCommand(
+                    this._getHandle(),
+                    NativeModules.UIManager.AMapMarker.Commands[name],
+                    args
+                )
+                break
 
-        case "ios":
-            NativeModules.AMapMarkerManager[name].apply(
-                NativeModules.AMapMarkerManager[name], [this._getHandle(), ...args]
-            )
-            break
+            case "ios":
+                NativeModules.AMapMarkerManager[name].apply(
+                    NativeModules.AMapMarkerManager[name], [this._getHandle(), ...args]
+                )
+                break
         }
-    },
+    }
 
-    _onPress: function(e) {
+    _onPress (e) {
         this.props.onPress && this.props.onPress(e)
-    },
+    }
 
-    render: function() {
+    render () {
         var image = undefined
         if (this.props.image) {
             image = resolveAssetSource(this.props.image) || {}
             image = image.uri
         }
 
-        return ( <AMapMarker
-                    ref = "marker"
-                    {...this.props}
-                    image = {image}
-                    style = {[styles.marker, this.props.style]}
-                    onPress = {this._onPress}
-                />
+        return (<AMapMarker
+            ref="marker"
+            {...this.props}
+            image={image}
+            style={[styles.marker, this.props.style]}
+            onPress={this._onPress}
+        />
         )
-    },
-})
+    }
+};
 
 var styles = StyleSheet.create({
     marker: {
@@ -272,4 +267,4 @@ var styles = StyleSheet.create({
 
 MapMarker.Animated = Animated.createAnimatedComponent(MapMarker)
 
-module.exports = MapMarker
+export default MapMarker;

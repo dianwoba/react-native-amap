@@ -1,21 +1,16 @@
 
-var React = require('react');
-var {
-  PropTypes,
-} = React;
-
-var ReactNative = require('react-native');
-var {
+import React, { PropTypes } from 'react';
+import {
   View,
   NativeMethodsMixin,
   requireNativeComponent,
   StyleSheet,
-} = ReactNative;
+} from 'react-native';
 
-var MapCircle = React.createClass({
-  mixins: [NativeMethodsMixin],
+class MapCircle extends React.Component {
+  // mixins: [NativeMethodsMixin],
 
-  propTypes: {
+  static propTypes = {
     ...View.propTypes,
 
     /**
@@ -125,29 +120,26 @@ var MapCircle = React.createClass({
      * @platform ios
      */
     lineDashPattern: PropTypes.arrayOf(PropTypes.number),
-  },
+  }
 
-  getDefaultProps: function() {
-    return {
-      strokeColor: '#000',
-      strokeWidth: 1,
-    };
-  },
+  static defaultProps = {
+    strokeColor: '#000',
+    strokeWidth: 1,
+  }
 
-  _onPress: function(e) {
+  _onPress(e) {
     this.props.onPress && this.props.onPress(e);
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <AMapCircle
         {...this.props}
         onPress={this._onPress}
       />
     );
-  },
-});
+  }
+};
 
-var AMapCircle = requireNativeComponent('AMapCircle', MapCircle);
+export default requireNativeComponent('AMapCircle', MapCircle);
 
-module.exports = MapCircle;

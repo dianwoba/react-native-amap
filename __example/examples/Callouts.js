@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -7,7 +7,7 @@ var {
   Dimensions,
   TouchableOpacity,
   Image,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 var PriceMarker = require('./PriceMarker');
@@ -22,7 +22,7 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const SPACE = 0.01;
 
-var Callouts = React.createClass({
+export default class Callouts extends React.Component {
   getInitialState() {
     return {
       region: {
@@ -52,15 +52,15 @@ var Callouts = React.createClass({
         },
       ],
     };
-  },
+  }
 
   show() {
     this.refs.m1.showCallout();
-  },
+  }
 
   hide() {
     this.refs.m1.hideCallout();
-  },
+  }
 
   render() {
     const { region, markers } = this.state;
@@ -111,8 +111,8 @@ var Callouts = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -154,5 +154,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = Callouts;

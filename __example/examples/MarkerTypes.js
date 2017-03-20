@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -7,7 +7,7 @@ var {
   Dimensions,
   TouchableOpacity,
   Image,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 var PriceMarker = require('./PriceMarker');
@@ -21,7 +21,7 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const SPACE = 0.01;
 
-var MarkerTypes = React.createClass({
+export default class MarkerTypes extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -34,7 +34,7 @@ var MarkerTypes = React.createClass({
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
           }}
-          >
+        >
           <MapView.Marker
             coordinate={{
               latitude: LATITUDE + SPACE,
@@ -43,7 +43,7 @@ var MarkerTypes = React.createClass({
             centerOffset={{ x: -18, y: -60 }}
             anchor={{ x: 0.69, y: 1 }}
             image={require('./assets/flag-blue.png')}
-            />
+          />
           <MapView.Marker
             coordinate={{
               latitude: LATITUDE - SPACE,
@@ -52,12 +52,12 @@ var MarkerTypes = React.createClass({
             centerOffset={{ x: -42, y: -60 }}
             anchor={{ x: 0.84, y: 1 }}
             image={require('./assets/flag-pink.png')}
-            />
+          />
         </MapView>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -77,5 +77,3 @@ var styles = StyleSheet.create({
     bottom: 0,
   },
 });
-
-module.exports = MarkerTypes;

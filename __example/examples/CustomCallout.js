@@ -1,11 +1,11 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   View,
   Text,
-} = React;
+} from 'react-native';
 
-var CustomCallout = React.createClass({
+export default class CustomCallout extends React.Component {
   render() {
     return (
       <View style={[styles.container, this.props.style]}>
@@ -18,8 +18,8 @@ var CustomCallout = React.createClass({
         <View style={styles.arrow} />
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -63,4 +63,3 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = CustomCallout;

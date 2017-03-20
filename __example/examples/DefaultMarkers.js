@@ -1,12 +1,12 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
   Text,
   Dimensions,
   TouchableOpacity,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 var { width, height } = Dimensions.get('window');
@@ -22,9 +22,10 @@ function randomColor() {
   return '#'+Math.floor(Math.random()*16777215).toString(16);
 }
 
-var DefaultMarkers = React.createClass({
-  getInitialState() {
-    return {
+export default class DefaultMarkers extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -33,7 +34,7 @@ var DefaultMarkers = React.createClass({
       },
       markers: [],
     };
-  },
+  }
 
   onMapPress(e) {
     this.setState({
@@ -46,7 +47,7 @@ var DefaultMarkers = React.createClass({
         },
       ],
     });
-  },
+  }
 
   render() {
     return (
@@ -71,8 +72,8 @@ var DefaultMarkers = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -113,5 +114,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = DefaultMarkers;

@@ -1,12 +1,12 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
   Text,
   Dimensions,
   TouchableOpacity,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 
@@ -18,9 +18,10 @@ const LONGITUDE = -122.4324;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-var DisplayLatLng = React.createClass({
-  getInitialState() {
-    return {
+export default class DisplayLatLng extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -28,19 +29,11 @@ var DisplayLatLng = React.createClass({
         longitudeDelta: LONGITUDE_DELTA,
       },
     };
-  },
-
-  onRegionChange(region) {
-    this.setState({ region });
-  },
-
-  jumpRandom() {
-    this.setState({ region: this.randomRegion() });
-  },
+  }
 
   animateRandom() {
     this.refs.map.animateToRegion(this.randomRegion());
-  },
+  }
 
   randomRegion() {
     var { region } = this.state;
@@ -49,7 +42,7 @@ var DisplayLatLng = React.createClass({
       latitude: region.latitude + (Math.random() - 0.5) * region.latitudeDelta / 2,
       longitude: region.longitude + (Math.random() - 0.5) * region.longitudeDelta / 2,
     };
-  },
+  }
 
   render() {
     return (
@@ -63,7 +56,7 @@ var DisplayLatLng = React.createClass({
         >
         </MapView>
         <View style={[styles.bubble, styles.latlng]}>
-          <Text style={{ textAlign: 'center'}}>
+          <Text style={{ textAlign: 'center' }}>
             {`${this.state.region.latitude.toPrecision(7)}, ${this.state.region.longitude.toPrecision(7)}`}
           </Text>
         </View>
@@ -77,8 +70,8 @@ var DisplayLatLng = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -119,5 +112,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = DisplayLatLng;

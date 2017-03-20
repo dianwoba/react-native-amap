@@ -1,5 +1,5 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
@@ -8,7 +8,7 @@ var {
   TouchableOpacity,
   Animated,
   Platform,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
 
@@ -20,15 +20,16 @@ const LONGITUDE = -122.4324;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-var AnimatedMarkers = React.createClass({
-  getInitialState() {
-    return {
+export default class AnimatedMarkers extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       coordinate: new Animated.Region({
         latitude: LATITUDE,
         longitude: LONGITUDE,
       }),
     };
-  },
+  }
 
   animate() {
     var { coordinate } = this.state;
@@ -36,7 +37,7 @@ var AnimatedMarkers = React.createClass({
       latitude: LATITUDE + (Math.random() - 0.5) * LATITUDE_DELTA / 2,
       longitude: LONGITUDE + (Math.random() - 0.5) * LONGITUDE_DELTA / 2,
     }).start();
-  },
+  }
 
   render() {
     return (
@@ -61,9 +62,8 @@ var AnimatedMarkers = React.createClass({
         </View>
       </View>
     );
-  },
-});
-
+  }
+};
 
 
 var styles = StyleSheet.create({
@@ -106,5 +106,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = AnimatedMarkers;

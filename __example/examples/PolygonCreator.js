@@ -1,15 +1,15 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   PropTypes,
   View,
   Text,
   Dimensions,
   TouchableOpacity,
-} = React;
+} from 'react-native';
 
 import MapView from 'react-native-amap-view'
-var PriceMarker = require('./PriceMarker');
+import PriceMarker from './PriceMarker';
 
 var { width, height } = Dimensions.get('window');
 
@@ -20,9 +20,10 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 var id = 0;
 
-var DisplayLatLng = React.createClass({
-  getInitialState() {
-    return {
+export default class DisplayLatLng extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -32,7 +33,7 @@ var DisplayLatLng = React.createClass({
       polygons: [],
       editing: null,
     };
-  },
+  }
 
   finish() {
     var { polygons, editing } = this.state;
@@ -40,7 +41,7 @@ var DisplayLatLng = React.createClass({
       polygons: [...polygons, editing],
       editing: null,
     });
-  },
+  }
 
   onPress(e) {
     var { editing } = this.state;
@@ -62,7 +63,7 @@ var DisplayLatLng = React.createClass({
         },
       });
     }
-  },
+  }
 
   render() {
     return (
@@ -99,8 +100,8 @@ var DisplayLatLng = React.createClass({
         </View>
       </View>
     );
-  },
-});
+  }
+};
 
 var styles = StyleSheet.create({
   container: {
@@ -141,5 +142,3 @@ var styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
 });
-
-module.exports = DisplayLatLng;

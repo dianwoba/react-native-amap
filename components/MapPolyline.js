@@ -1,20 +1,15 @@
-var React = require('react');
-var {
-  PropTypes,
-} = React;
-
-var ReactNative = require('react-native');
-var {
+import React, { PropTypes } from 'react';
+import {
   View,
   NativeMethodsMixin,
   requireNativeComponent,
   StyleSheet,
-} = ReactNative;
+} from 'react-native';
 
-var MapPolyline = React.createClass({
-  mixins: [NativeMethodsMixin],
+class MapPolyline extends React.Component {
+  // mixins: [NativeMethodsMixin],
 
-  propTypes: {
+  static propTypes = {
     ...View.propTypes,
 
     /**
@@ -124,21 +119,19 @@ var MapPolyline = React.createClass({
      * @platform ios
      */
     lineDashPattern: PropTypes.arrayOf(PropTypes.number),
-  },
+  }
 
-  getDefaultProps: function() {
-    return {
-      strokeColor: '#000',
-      strokeWidth: 1,
-    };
-  },
+  static defaultProps = {
+    strokeColor: '#000',
+    strokeWidth: 1,
+  }
 
-  render: function() {
+  render() {
     return (
       <AMapPolyline {...this.props} />
     );
-  },
-});
+  }
+};
 
 // var styles = StyleSheet.create({
 //   polyline: {
@@ -150,4 +143,4 @@ var MapPolyline = React.createClass({
 
 var AMapPolyline = requireNativeComponent('AMapPolyline', MapPolyline);
 
-module.exports = MapPolyline;
+export default MapPolyline;

@@ -3,7 +3,7 @@ package com.dianwoba.rctamap;
 import android.graphics.Color;
 import android.view.View;
 
-import com.amap.api.maps2d.model.Marker;
+import com.amap.api.maps.model.Marker;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
